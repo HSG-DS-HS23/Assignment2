@@ -1,0 +1,67 @@
+
+"openapi": "3.0.1"
+"info":
+  "title": "Search Engine API"
+  "version": "1"
+"paths":
+  "/":
+    "get":
+      "summary": "Get main page"
+      "responses":
+        200:
+          "description": "Successful reponse"
+          "content":
+            "text/html":
+              "schema":
+                "$ref": '#/components/schemas/MainPage'
+  "/search":
+    "get":
+      "summary": "Get search results from the search engine"
+      "parameters":
+        -
+          "in": "query"
+          "name": "q"
+          "schema":
+            "type": "string"
+            "description": "The keyword to look for"
+      "responses":
+        200:
+          "description": "Successful response with search results"
+          "content":
+            "text/html":
+              "schema":
+                "$ref": '#/components/schemas/MainPage'
+            "application/json":
+              "schema":
+                "$ref": '#/components/schemas/UrlArray'
+  "/lucky":
+    "get":
+      "summary": "Get best page"
+      "parameters":
+        -
+          "in": "query"
+          "name": "q"
+          "schema":
+            "type": "string"
+            "description": "The url to start crawling"
+      "responses":
+        200:
+          "description": "Successful response"
+          "content":
+            "text/html":
+              "schema":
+                "$ref": '#/components/schemas/MainPage'
+            "application/json":
+              "schema":
+                "$ref": '#/components/schemas/Url'
+
+"components":
+  "schemas":
+    "MainPage":
+      "type": "string"
+    "Url":
+      "type": "string"
+    "UrlArray":
+      "type": "array"
+      "items":
+        "$ref": "#/components/schemas/Url"
