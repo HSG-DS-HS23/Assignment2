@@ -32,6 +32,15 @@ src
 
 ```
 
+## Setup Linux or MacOS
+
+The gradlew file needs to be made executable. To do so, perform the following operation:
+
+```bash
+chmod 755 gradlew
+
+```
+
 ## Task 1
 
 ### Run the tests for the class SimpleCrawlerTest. You should have a sucessful build to pass the test.
@@ -46,7 +55,7 @@ On Linux:
 On MacOS:
 
 ```bash
-.\gradlew test --tests "SimpleCrawlerTest"
+./gradlew test --tests "SimpleCrawlerTest"
 
 ```
 
@@ -72,7 +81,7 @@ On Linux:
 On MacOS:
 
 ```bash
-.\gradlew test --tests "SimpleCrawlerTest"
+./gradlew test --tests "SimpleCrawlerTest"
 
 ```
 
@@ -110,7 +119,7 @@ On Linux:
 On MacOS:
 
 ```bash
-.\gradlew bootRun
+./gradlew bootRun
 
 ```
 
@@ -140,7 +149,7 @@ On Linux:
 On MacOS:
 
 ```bash
-.\gradlew test --tests "MultithreadCrawlerTest"
+./gradlew test --tests "MultithreadCrawlerTest"
 
 ```
 
