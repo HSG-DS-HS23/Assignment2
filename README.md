@@ -81,7 +81,8 @@ On Linux:
 On MacOS:
 
 ```bash
-./gradlew test --tests "SimpleCrawlerTest"
+./gradlew test --tests "IndexFlipperTest"
+./gradlew test --tests "SearcherTestTest"
 
 ```
 
@@ -89,7 +90,8 @@ On MacOS:
 On Windows:
 
 ```bash
-.\gradlew test --tests "SimpleCrawlerTest"
+.\gradlew test --tests "IndexFlipperTest"
+.\gradlew test --tests "SearcherTestTest"
 ```
 
 
