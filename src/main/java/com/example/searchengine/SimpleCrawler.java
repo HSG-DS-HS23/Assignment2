@@ -17,7 +17,7 @@ public class SimpleCrawler extends Crawler {
             int duration = 0; //TODO: update the value in the code
             Set<String[]> lines = explore(startUrl, new HashSet<>(), new HashSet<>());
             FileWriter fileWriter = new FileWriter(indexFileName);
-            CSVWriter writer = new CSVWriter(fileWriter,',', CSVWriter.NO_QUOTE_CHARACTER,' ',"\r\n");
+            CSVWriter writer = new CSVWriter(fileWriter,',', CSVWriter.NO_QUOTE_CHARACTER,' ',"\r\n"); //TODO: macOS and Linux users should change Line to "\n".
             for (String[] line : lines) {
                 writer.writeNext(line);
             }

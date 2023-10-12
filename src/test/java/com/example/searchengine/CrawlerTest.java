@@ -19,7 +19,6 @@ public abstract class CrawlerTest extends TestBase{
     public void crawl(){
         Crawler c = generateCrawler();
         c.crawl(startUrl);
-        System.out.println("crawling done in test class");
 
     }
 
@@ -30,13 +29,23 @@ public abstract class CrawlerTest extends TestBase{
             CSVReader csvReader = new CSVReader(new FileReader(indexFileName));
             List<String[]> lines = csvReader.readAll();
             boolean hasUrl7ab162649f1bb44 = false;
+            boolean hasUrl1bd38608b1a6cf7e = false;
+            boolean hasUrl68b088f800b95e8c = false;
             for (String[] line: lines){
-                boolean b = testUrl(line, "/7ab162649f1bb44", createSet("journalist", "ion", "ir"));
-                if (b){
+                boolean b1 = testUrl(line, "/7ab162649f1bb44", createSet("journalist", "ion", "ir"));
+                boolean b2 = testUrl(line,"/1bd38608b1a6cf7e", createSet("verzeichnis", "mark", "camera"));
+                boolean b3 = testUrl(line,"/68b088f800b95e8c", createSet("mouse", "cherrybot", "sixth"));
+                if (b1){
                     hasUrl7ab162649f1bb44 = true;
                 }
+                else if (b2){
+                    hasUrl1bd38608b1a6cf7e = true;
+                }
+                else if (b3) {
+                    hasUrl68b088f800b95e8c = true;
+                }
             }
-            if (!hasUrl7ab162649f1bb44){
+            if (!hasUrl7ab162649f1bb44 || !hasUrl1bd38608b1a6cf7e ||!hasUrl68b088f800b95e8c){
                 fail();
             }
         } catch (Exception e){

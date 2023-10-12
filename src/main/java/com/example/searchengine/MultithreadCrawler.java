@@ -65,6 +65,12 @@ public class MultithreadCrawler extends Crawler {
         }
     }
 
+    /*TODO: complete class.
+    The purpose of this class is to monitor whether the executorService has completed all its threads and then print
+    the lines on the index.csv file.
+    This runnable should be run on a thread separate from the executorService.
+
+     */
     class ObserveRunnable implements Runnable {
         private MultithreadCrawler crawler;
 
