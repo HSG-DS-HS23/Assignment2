@@ -23,29 +23,19 @@ public abstract class CrawlerTest extends TestBase{
     }
 
     @Test
-    public void testCrawl(){
+    public void testCrawl1(){
         try {
             System.out.println("test crawl");
             CSVReader csvReader = new CSVReader(new FileReader(indexFileName));
             List<String[]> lines = csvReader.readAll();
             boolean hasUrl7ab162649f1bb44 = false;
-            boolean hasUrl1bd38608b1a6cf7e = false;
-            boolean hasUrl68b088f800b95e8c = false;
             for (String[] line: lines){
-                boolean b1 = testUrl(line, "/7ab162649f1bb44", createSet("journalist", "ion", "ir"));
-                boolean b2 = testUrl(line,"/1bd38608b1a6cf7e", createSet("verzeichnis", "mark", "camera"));
-                boolean b3 = testUrl(line,"/68b088f800b95e8c", createSet("mouse", "cherrybot", "sixth"));
-                if (b1){
+                boolean b = testUrl(line, "/7ab162649f1bb44", createSet("journalist", "ion", "ir"));
+                if (b){
                     hasUrl7ab162649f1bb44 = true;
                 }
-                else if (b2){
-                    hasUrl1bd38608b1a6cf7e = true;
-                }
-                else if (b3) {
-                    hasUrl68b088f800b95e8c = true;
-                }
             }
-            if (!hasUrl7ab162649f1bb44 || !hasUrl1bd38608b1a6cf7e ||!hasUrl68b088f800b95e8c){
+            if (!hasUrl7ab162649f1bb44){
                 fail();
             }
         } catch (Exception e){
@@ -53,6 +43,54 @@ public abstract class CrawlerTest extends TestBase{
             fail();
         }
     }
+
+    @Test
+    public void testCrawl2(){
+        try {
+            System.out.println("test crawl");
+            CSVReader csvReader = new CSVReader(new FileReader(indexFileName));
+            List<String[]> lines = csvReader.readAll();
+            boolean hasUrl1bd38608b1a6cf7e = false;
+            for (String[] line: lines){
+                boolean b = testUrl(line,"/1bd38608b1a6cf7e", createSet("verzeichnis", "mark", "camera"));
+
+                if (b){
+                    hasUrl1bd38608b1a6cf7e = true;
+                }
+
+            }
+            if ( !hasUrl1bd38608b1a6cf7e){
+                fail();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+            fail();
+        }
+    }
+    @Test
+    public void testCrawl3(){
+        try {
+            System.out.println("test crawl");
+            CSVReader csvReader = new CSVReader(new FileReader(indexFileName));
+            List<String[]> lines = csvReader.readAll();
+            boolean hasUrl68b088f800b95e8c = false;
+            for (String[] line: lines){
+                boolean b = testUrl(line,"/68b088f800b95e8c", createSet("mouse", "cherrybot", "sixth"));
+
+                if (b){
+                    hasUrl68b088f800b95e8c = true;
+                }
+
+            }
+            if ( !hasUrl68b088f800b95e8c){
+                fail();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+            fail();
+        }
+    }
+
 
     public boolean testUrl(String[] line, String url, Set<String> values){
         boolean b = false;
