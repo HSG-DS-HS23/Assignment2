@@ -131,9 +131,7 @@ If the port is 80, you can just use: "http://localhost/".
 You will implement the search engine (class SearchEngine.java) using the Spring framework.
 Links to basic documentation about how to use Spring to create a Web server are indicated in the file HELP.md.
 In order to provide appropriate responses
-with the required status codes, you should use the class org.springframework.http.ResponseEntity provided by Spring.
-
-The methods that you define in the SearchEngine class to implement the search and lucky operations should return objects of this class to be able to specify the appropriate status codes (and other information).
+with the required status codes, you should use the class org.springframework.http.ResponseEntity provided by Spring.  The methods that you define in the SearchEngine class to implement the search and lucky operations should return objects of this class to be able to specify the appropriate status codes (and other information).
 
 On Linux:
 
@@ -167,13 +165,9 @@ On Windows:
 
 In this task, you should complete the class MultithreadCrawler. In this class, there are two inner classes defined.
 
-In the method run of the class CrawlerRunnable, you should define the processing of a single URL. 
+In the method run of the class CrawlerRunnable, you should define the processing of a single URL.  When a new URL is discovered that has not been processed before, a new CrawlerRunnable should be created and run inside the executorService (of class ThreadPoolTaskExecutor).
 
-When a new URL is discovered that has not been processed before, a new CrawlerRunnable should be created and run inside the executorService (of class ThreadPoolTaskExecutor).
-
-In the method run of the class ObserveRunnable, you should determine when the crawling has been completed and then, print the index on the index.csv file.
-
-This runnable should be run in its own thread, independent of the executorService.
+In the method run of the class ObserveRunnable, you should determine when the crawling has been completed and then, print the index on the index.csv file.  This runnable should be run in its own thread, independent of the executorService.
 
 On Linux:
 
